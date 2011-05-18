@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/rep/!svn/ver/26015/1800/trunk/src/Core/InternetBrands.Core/Messaging
+END
+MessageExceptionFactory.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/rep/!svn/ver/22526/1800/trunk/src/Core/InternetBrands.Core/Messaging/MessageExceptionFactory.cs
+END
+MessageReceiverGateway.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/rep/!svn/ver/22526/1800/trunk/src/Core/InternetBrands.Core/Messaging/MessageReceiverGateway.cs
+END
+IMessageGateway.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/rep/!svn/ver/22526/1800/trunk/src/Core/InternetBrands.Core/Messaging/IMessageGateway.cs
+END
+IMessageSenderGateway.cs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/rep/!svn/ver/22526/1800/trunk/src/Core/InternetBrands.Core/Messaging/IMessageSenderGateway.cs
+END
+GenericMessageGateway.cs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/rep/!svn/ver/22526/1800/trunk/src/Core/InternetBrands.Core/Messaging/GenericMessageGateway.cs
+END
+MessageException.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/rep/!svn/ver/22526/1800/trunk/src/Core/InternetBrands.Core/Messaging/MessageException.cs
+END
+IMessageReceiverGateway.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/rep/!svn/ver/22526/1800/trunk/src/Core/InternetBrands.Core/Messaging/IMessageReceiverGateway.cs
+END
+MessageGateway.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/rep/!svn/ver/26015/1800/trunk/src/Core/InternetBrands.Core/Messaging/MessageGateway.cs
+END
+MessageSenderGateway.cs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/rep/!svn/ver/22410/1800/trunk/src/Core/InternetBrands.Core/Messaging/MessageSenderGateway.cs
+END

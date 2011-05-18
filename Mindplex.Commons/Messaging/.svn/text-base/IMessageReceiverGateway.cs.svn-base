@@ -1,0 +1,90 @@
+
+#region Imports
+
+using System;
+using System.Messaging;
+using System.Xml;
+
+#endregion
+
+namespace InternetBrands.Core.Messaging
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    /// 
+    public interface IMessageReceiverGateway
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <returns></returns>
+        /// 
+        object ReceiveObject();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="timeout"></param>
+        /// 
+        /// <returns></returns>
+        /// 
+        object ReceiveObject(int timeout);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <returns></returns>
+        /// 
+        string ReceiveString();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="timeout"></param>
+        /// 
+        /// <returns></returns>
+        /// 
+        string ReceiveString(int timeout);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <returns></returns>
+        /// 
+        XmlDocument ReceiveXmlDocument();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="timeout"></param>
+        /// 
+        /// <returns></returns>
+        /// 
+        XmlDocument ReceiveXmlDocument(int timeout);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <returns></returns>
+        /// 
+        Message ReceiveMessage();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="timeout"></param>
+        /// 
+        /// <returns></returns>
+        /// 
+        Message ReceiveMessage(int timeout);
+    }
+}

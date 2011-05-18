@@ -1,0 +1,39 @@
+
+#if UNIT_TEST
+
+#region Imports
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+using NUnit.Core;
+using NUnit.Framework;
+
+#endregion
+
+namespace InternetBrands.Core.Common.Test
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    /// 
+    /// <author>Abel Perez (java.aperez@gmail.com)</author>
+    /// 
+    [TestFixture]
+    public class ArgumentValidatorTest
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        [Test]
+        public void TestCheckForNull()
+        {
+            ArgumentValidator.CheckForNull("not null"); 
+        }
+    }
+}
+
+#endif
+

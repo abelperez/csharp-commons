@@ -1,0 +1,42 @@
+
+#region Imports
+
+using System;
+using System.Xml;
+
+using NUnit.Core;
+using NUnit.Framework;
+
+#endregion
+
+namespace InternetBrands.Core.Messaging.Test
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    /// 
+    [TestFixture]
+    public class MessageReceiverGatewayTest
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        [Test]
+        public void TestReceiveObject()
+        {
+            //IMessageReceiverGateway gateway = new MessageReceiverGateway("");
+            //object result = gateway.ReceiveObject();
+
+            MessageGateway<string> gateway = new MessageGateway<string>("boomerang");
+            gateway.Send("abel");
+            string response = gateway.Receive(10000);
+
+            Assert.IsNotNull(response);
+            Assert.IsNotEmpty(response);
+
+            Console.WriteLine(response);
+            
+        }
+    }
+}

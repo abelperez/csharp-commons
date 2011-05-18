@@ -1,0 +1,60 @@
+
+#region Imports
+
+using System;
+using System.Runtime.Serialization;
+
+using InternetBrands.Core.Exceptions;
+
+#endregion
+
+namespace InternetBrands.Core.Messaging
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    /// 
+    public class MessageExceptionFactory : IGenericExceptionFactory
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// 
+        /// <returns></returns>
+        /// 
+        public IGenericException Create(string message)
+        {
+            return new MessageException(message);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// <param name="innerException"></param>
+        /// 
+        /// <returns></returns>
+        /// 
+        public IGenericException Create(string message, Exception innerException)
+        {
+            return new MessageException(message, innerException);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="serializationInfo"></param>
+        /// <param name="streamingContext"></param>
+        /// 
+        /// <returns></returns>
+        /// 
+        public IGenericException Create(SerializationInfo serializationInfo, StreamingContext streamingContext)
+        {
+            return new MessageException(serializationInfo, streamingContext);
+        }
+    }
+}

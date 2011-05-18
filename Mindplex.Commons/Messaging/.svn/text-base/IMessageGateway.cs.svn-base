@@ -1,0 +1,69 @@
+
+#region Imports
+
+using System;
+
+#endregion
+
+namespace InternetBrands.Core.Messaging
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    /// 
+    public interface IMessageGateway<T>
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        event OnMessageEvent<T> OnMessageReceived;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        void StartAsync();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        void StopAsync();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// 
+        void Send(T message);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// <param name="destination"></param>
+        /// 
+        void Send(T message, string destination);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <returns></returns>
+        /// 
+        T Receive();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="timeout"></param>
+        /// 
+        /// <returns></returns>
+        /// 
+        T Receive(int timeout);
+    }
+}

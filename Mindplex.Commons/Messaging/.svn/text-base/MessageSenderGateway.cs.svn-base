@@ -1,0 +1,260 @@
+
+#region Imports
+
+using System;
+using System.Collections.Generic;
+using System.Messaging;
+using System.Text;
+using System.Xml;
+
+using log4net;
+
+#endregion
+
+namespace InternetBrands.Core.Messaging
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    /// 
+    public class MessageSenderGateway : GenericMessageGateway, IMessageSenderGateway
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="destination"></param>
+        /// 
+        public MessageSenderGateway(string destination)
+            : base(destination)
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="destination"></param>
+        /// <param name="targetTypes"></param>
+        /// 
+        public MessageSenderGateway(string destination, Type[] targetTypes)
+            : base(destination, targetTypes)
+        {
+        }
+
+        #region Send Object Message
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// 
+        public void Send(object message)
+        {
+            Guard.CheckForNull(message);
+            OneWay(message);    
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// <param name="destination"></param>
+        /// 
+        public void Send(object message, string destination)
+        {
+            Guard.CheckForNull(message);
+            Guard.CheckIsNullOrEmpty(destination);
+
+            using (MessageQueue queue = GetMessageQueue(destination))
+            {
+                OneWay(queue, message);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// 
+        /// <param name="targetTypes"></param>
+        /// 
+        public void Send(object message, string destination, Type[] targetTypes)
+        {
+            Guard.CheckForNull(message, targetTypes);
+            Guard.IsNullOrEmpty(destination);
+
+            using (MessageQueue queue = GetMessageQueue(destination))
+            {
+                queue.Formatter = CreateMessageFormatter(targetTypes);
+                OneWay(queue, message);
+            }
+        }
+
+        #endregion
+
+        #region Send String Message
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// 
+        public void Send(string message)
+        {
+            Guard.CheckIsNullOrEmpty(message);
+            OneWay(message);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// <param name="destination"></param>
+        /// 
+        public void Send(string message, string destination)
+        {
+            Guard.CheckIsNullOrEmpty(message, destination);
+            using (MessageQueue queue = GetMessageQueue(destination))
+            {
+                OneWay(message);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// <param name="destination"></param>
+        /// <param name="targetTypes"></param>
+        /// 
+        public void Send(string message, string destination, Type[] targetTypes)
+        {
+            Guard.CheckIsNullOrEmpty(message, destination);
+            Guard.CheckForNull(targetTypes);
+
+            using (MessageQueue queue = GetMessageQueue(destination))
+            {
+                queue.Formatter = CreateMessageFormatter(targetTypes);
+                OneWay(message);
+            }
+        }
+
+        #endregion
+
+        #region Send XmlDocument Message
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// 
+        public void Send(XmlDocument message)
+        {
+            Guard.CheckForNull(message);
+            OneWay(message);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// <param name="destination"></param>
+        /// 
+        public void Send(XmlDocument message, string destination)
+        {
+            Guard.CheckForNull(message);
+            Guard.CheckIsNullOrEmpty(destination);
+
+            using (MessageQueue queue = GetMessageQueue(destination)) 
+            {
+                OneWay(queue, message);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// <param name="destination"></param>
+        /// <param name="targetTypes"></param>
+        /// 
+        public void Send(XmlDocument message, string destination, Type[] targetTypes)
+        {
+            Guard.CheckForNull(message, targetTypes);
+            Guard.CheckIsNullOrEmpty(destination);
+
+            using (MessageQueue queue = GetMessageQueue(destination))
+            {
+                queue.Formatter = CreateMessageFormatter(targetTypes);
+                OneWay(queue, message);
+            }
+        }
+
+        #endregion
+
+        #region Send Message Message
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// 
+        public void Send(Message message)
+        {
+            Guard.CheckForNull(message);
+            OneWay(message);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// <param name="destination"></param>
+        /// 
+        public void Send(Message message, string destination)
+        {
+            Guard.CheckForNull(message);
+            Guard.CheckIsNullOrEmpty(destination);
+
+            using (MessageQueue queue = GetMessageQueue(destination))
+            {
+                OneWay(message);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// <param name="destination"></param>
+        /// <param name="targetTypes"></param>
+        /// 
+        public void Send(Message message, string destination, Type[] targetTypes)
+        {
+            Guard.CheckForNull(message, targetTypes);
+            Guard.CheckIsNullOrEmpty(destination);
+
+            using (MessageQueue queue = GetMessageQueue(destination))
+            {
+                queue.Formatter = CreateMessageFormatter(targetTypes);
+                OneWay(message);
+            }
+        }
+
+        #endregion
+
+    }
+}
