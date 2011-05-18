@@ -1,0 +1,58 @@
+
+#region Imports
+
+using System;
+using System.Runtime.Serialization;
+
+#endregion
+
+namespace InternetBrands.Core.Exceptions
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    /// 
+    public class GenericExceptionFactory : IGenericExceptionFactory
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// 
+        /// <returns></returns>
+        /// 
+        public IGenericException Create(string message)
+        {
+            return new GenericException(message);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="message"></param>
+        /// <param name="innerException"></param>
+        /// 
+        /// <returns></returns>
+        /// 
+        public IGenericException Create(string message, Exception innerException)
+        {
+            return new GenericException(message, innerException);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="serializationInfo"></param>
+        /// <param name="streamingContext"></param>
+        /// 
+        /// <returns></returns>
+        /// 
+        public IGenericException Create(SerializationInfo serializationInfo, StreamingContext streamingContext)
+        {
+            return new GenericException(serializationInfo, streamingContext);
+        }
+    }
+}
