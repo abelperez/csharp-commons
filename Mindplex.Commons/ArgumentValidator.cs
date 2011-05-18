@@ -17,7 +17,7 @@ using System;
 
 #endregion
 
-namespace InternetBrands.Core.Common
+namespace Mindplex.Commons
 {
     /// <summary>
     /// 

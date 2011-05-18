@@ -18,7 +18,7 @@ using System.Collections;
 
 #endregion
 
-namespace InternetBrands.Core
+namespace Mindplex.Commons
 {
     /// <summary>
     /// TODO: Add check for null/empty with overload for exception message 

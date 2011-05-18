@@ -24,7 +24,7 @@ using NUnit.Framework;
 
 #endregion
 
-namespace InternetBrands.Core.Common.Test
+namespace Mindplex.Commons.Test
 {
     /// <summary>
     /// 

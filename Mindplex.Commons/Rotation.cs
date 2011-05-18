@@ -18,7 +18,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace InternetBrands.Core
+namespace Mindplex.Commons
 {
     /// <summary>
     /// 
