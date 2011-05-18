@@ -19,11 +19,11 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 
-using InternetBrands.Core.Model.Test;
+using Mindplex.Commons.Model.Test;
 
 #endregion
 
-namespace InternetBrands.Core.DAO.Test
+namespace Mindplex.Commons.DAO.Test
 {
     /// <summary>
     ///

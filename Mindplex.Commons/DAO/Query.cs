@@ -18,11 +18,11 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-using InternetBrands.Core.Model;
+using Mindplex.Commons.Model;
 
 #endregion
 
-namespace InternetBrands.Core.DAO
+namespace Mindplex.Commons.DAO
 {
     /// <summary>
     /// 

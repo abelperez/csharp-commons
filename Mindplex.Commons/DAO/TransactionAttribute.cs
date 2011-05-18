@@ -17,7 +17,7 @@ using System;
 
 #endregion
 
-namespace InternetBrands.Core.DAO
+namespace Mindplex.Commons.DAO
 {
     /// <summary>
     /// 

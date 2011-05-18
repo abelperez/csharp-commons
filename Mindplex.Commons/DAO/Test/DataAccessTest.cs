@@ -19,10 +19,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-using InternetBrands.Core.Model;
-using InternetBrands.Core.Model.Test;
-using InternetBrands.Core.DAO;
-using InternetBrands.Core.DAO.Test;
+using Mindplex.Commons.Model;
+using Mindplex.Commons.Model.Test;
+using Mindplex.Commons.DAO;
+using Mindplex.Commons.DAO.Test;
 
 
 using NUnit.Core;
@@ -30,7 +30,7 @@ using NUnit.Framework;
 
 #endregion
 
-namespace InternetBrands.Core.DAO.Test
+namespace Mindplex.Commons.DAO.Test
 {
     /// <summary>
     /// 

@@ -17,11 +17,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-using InternetBrands.Core.Instrumentation;
+using Mindplex.Commons.Instrumentation;
 
 #endregion
 
-namespace InternetBrands.Core.DAO
+namespace Mindplex.Commons.DAO
 {
     /// <summary>
     /// 
@@ -41,7 +41,7 @@ namespace InternetBrands.Core.DAO
         /// 
         /// </summary>
         /// 
-        public static readonly string source = "InternetBrands.Core.DAO";
+        public static readonly string source = "Mindplex.Commons.DAO";
 
         /// <summary>
         /// 

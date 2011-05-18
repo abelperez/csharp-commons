@@ -18,7 +18,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace InternetBrands.Core.DAO
+namespace Mindplex.Commons.DAO
 {
     /// <summary>
     /// 

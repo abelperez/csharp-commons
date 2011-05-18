@@ -21,7 +21,7 @@ using NUnit.Framework;
 
 #endregion
 
-namespace InternetBrands.Core.DAO.Test
+namespace Mindplex.Commons.DAO.Test
 {
     /// <summary>
     /// 

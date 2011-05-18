@@ -26,17 +26,17 @@ using System.Text;
 using System.Transactions;
 using System.Xml;
 
-using InternetBrands.Core.Model;
-using InternetBrands.Core.DAO;
-using InternetBrands.Core.Common;
-using InternetBrands.Core.Instrumentation;
+using Mindplex.Commons.Model;
+using Mindplex.Commons.DAO;
+using Mindplex.Commons.Common;
+using Mindplex.Commons.Instrumentation;
 
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 
 #endregion
 
-namespace InternetBrands.Core.DAO
+namespace Mindplex.Commons.DAO
 {
     /// <summary>
     /// 

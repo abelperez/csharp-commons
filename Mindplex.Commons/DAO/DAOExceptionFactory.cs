@@ -16,11 +16,11 @@
 using System;
 using System.Runtime.Serialization;
 
-using InternetBrands.Core.Exceptions;
+using Mindplex.Commons.Exceptions;
 
 #endregion
 
-namespace InternetBrands.Core.DAO
+namespace Mindplex.Commons.DAO
 {
     /// <summary>
     /// 

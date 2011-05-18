@@ -17,13 +17,13 @@ using System;
 
 using log4net;
 
-using InternetBrands.Core.Common;
-using InternetBrands.Core.Instrumentation;
-using InternetBrands.Core.Mail;
+using Mindplex.Commons.Common;
+using Mindplex.Commons.Instrumentation;
+using Mindplex.Commons.Mail;
 
 #endregion
 
-namespace InternetBrands.Core.DAO
+namespace Mindplex.Commons.DAO
 {
     /// <summary>
     /// 
@@ -31,7 +31,7 @@ namespace InternetBrands.Core.DAO
     /// 
     /// <author>Abel Perez (java.aperez@gmail.com)</author>
     /// 
-    [Obsolete("DAOExceptionHandler is obsolete, please use InternetBrands.Core.Exceptions.ExceptionHandler.")]
+    [Obsolete("DAOExceptionHandler is obsolete, please use Mindplex.Commons.Exceptions.ExceptionHandler.")]
     public sealed class DAOExceptionHandler
     {
         /// <summary>

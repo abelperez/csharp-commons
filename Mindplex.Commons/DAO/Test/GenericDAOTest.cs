@@ -19,11 +19,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-using InternetBrands.Core.Test;
+using Mindplex.Commons.Test;
 
 #endregion
 
-namespace InternetBrands.Core.DAO.Test
+namespace Mindplex.Commons.DAO.Test
 {
     /// <summary>
     /// 
