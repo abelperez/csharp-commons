@@ -14,50 +14,73 @@
 #region Imports
 
 using System;
-using System.Runtime.Serialization;
-
-using Mindplex.Commons.Exceptions;
 
 #endregion
 
-namespace Mindplex.Commons.Mail
+namespace Mindplex.Commons.Web
 {
     /// <summary>
     /// 
     /// </summary>
     /// 
-    public class EmailGatewayException : Exception, IGenericException
+    public interface IHttpGateway
     {
         /// <summary>
         /// 
         /// </summary>
         /// 
-        public EmailGatewayException()
-            : base()
-        {
-        }
+        string Url { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// 
-        /// <param name="message"></param>
-        /// 
-        public EmailGatewayException(string message)
-            : base(message)
-        {
-        }
+        string Verb { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// 
-        /// <param name="message"></param>
-        /// <param name="exception"></param>
+        int Timeout { get; set; }
+
+        /// <summary>
         /// 
-        public EmailGatewayException(string message, Exception exception)
-            : base(message, exception)
-        {
-        }
+        /// </summary>
+        /// 
+        string AuthMethod { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        string Username { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        string Password { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        string ContentType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        string[] Headers { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="payload"></param>
+        /// 
+        /// <returns></returns>
+        /// 
+        HttpGatewayResponse Request(string payload);
     }
 }

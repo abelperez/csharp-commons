@@ -14,50 +14,59 @@
 #region Imports
 
 using System;
-using System.Runtime.Serialization;
-
-using Mindplex.Commons.Exceptions;
+using System.Collections.Generic;
 
 #endregion
 
-namespace Mindplex.Commons.Mail
+namespace Mindplex.Commons.Threading
 {
     /// <summary>
     /// 
     /// </summary>
     /// 
-    public class EmailGatewayException : Exception, IGenericException
+    public class AsyncOperation<T, T0>
     {
         /// <summary>
         /// 
         /// </summary>
         /// 
-        public EmailGatewayException()
-            : base()
+        private T state;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        private T0 asyncResult;
+                
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="state"></param>
+        /// <param name="asyncResult"></param>
+        /// 
+        public AsyncOperation(T state, T0 asyncResult)
         {
+            this.asyncResult = asyncResult;
+            this.state = state;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// 
-        /// <param name="message"></param>
-        /// 
-        public EmailGatewayException(string message)
-            : base(message)
+        public T State
         {
+            get { return state; }
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// 
-        /// <param name="message"></param>
-        /// <param name="exception"></param>
-        /// 
-        public EmailGatewayException(string message, Exception exception)
-            : base(message, exception)
+        public T0 AsyncResult
         {
+            get { return asyncResult; }
         }
     }
 }

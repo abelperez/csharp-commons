@@ -14,50 +14,68 @@
 #region Imports
 
 using System;
-using System.Runtime.Serialization;
-
-using Mindplex.Commons.Exceptions;
+using System.Collections;
 
 #endregion
 
-namespace Mindplex.Commons.Mail
+namespace Mindplex.Commons.Resources
 {
     /// <summary>
     /// 
     /// </summary>
     /// 
-    public class EmailGatewayException : Exception, IGenericException
+    internal sealed class ResourceCache
     {
         /// <summary>
         /// 
         /// </summary>
         /// 
-        public EmailGatewayException()
-            : base()
+        private static readonly Hashtable resourceCache = Hashtable.Synchronized(new Hashtable());
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// 
+        public static void Add(string key, string value)
         {
+            Guard.CheckIsNullOrEmpty(key, value);
+            resourceCache[key] = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// 
-        /// <param name="message"></param>
+        /// <param name="key"></param>
         /// 
-        public EmailGatewayException(string message)
-            : base(message)
+        /// <returns></returns>
+        /// 
+        public static string Fetch(string key)
         {
+            return resourceCache[key] as string;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// 
-        /// <param name="message"></param>
-        /// <param name="exception"></param>
-        /// 
-        public EmailGatewayException(string message, Exception exception)
-            : base(message, exception)
+        public static void Flush()
         {
+            resourceCache.Clear();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="key"></param>
+        /// 
+        public static bool Contains(string key)
+        {
+            return resourceCache.Contains(key);
         }
     }
 }

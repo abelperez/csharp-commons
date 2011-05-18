@@ -14,50 +14,62 @@
 #region Imports
 
 using System;
-using System.Runtime.Serialization;
+using System.Collections.Generic;
+using System.Text;
 
-using Mindplex.Commons.Exceptions;
+using log4net;
+using log4net.Config;
+
+using NUnit.Framework;
+
+using Spring.Core;
+using Spring.Context;
+using Spring.Context.Support;
 
 #endregion
 
-namespace Mindplex.Commons.Mail
+namespace Mindplex.Commons.Test
 {
     /// <summary>
     /// 
     /// </summary>
     /// 
-    public class EmailGatewayException : Exception, IGenericException
+    /// <author>Abel Perez (java.aperez@gmail.com)</author>
+    /// 
+    public class GenericTest
     {
+        private ILog logger;
+
         /// <summary>
         /// 
         /// </summary>
         /// 
-        public EmailGatewayException()
-            : base()
+        public GenericTest()
         {
+            XmlConfigurator.Configure();
+            logger = LogManager.GetLogger(GetType());
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// 
-        /// <param name="message"></param>
+        /// <returns></returns>
         /// 
-        public EmailGatewayException(string message)
-            : base(message)
+        public virtual IApplicationContext GetApplicationContext()
         {
+            Logger.Debug("initializing Spring application context...");
+            return ContextRegistry.GetContext();
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// 
-        /// <param name="message"></param>
-        /// <param name="exception"></param>
-        /// 
-        public EmailGatewayException(string message, Exception exception)
-            : base(message, exception)
+        protected ILog Logger
         {
+            get { return this.logger; }
+            set { this.logger = value; }
         }
     }
 }

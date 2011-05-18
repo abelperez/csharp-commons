@@ -14,50 +14,35 @@
 #region Imports
 
 using System;
-using System.Runtime.Serialization;
-
-using Mindplex.Commons.Exceptions;
+using System.Collections.Generic;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
 
 #endregion
 
-namespace Mindplex.Commons.Mail
+namespace Mindplex.Commons.Web
 {
     /// <summary>
     /// 
     /// </summary>
     /// 
-    public class EmailGatewayException : Exception, IGenericException
+    public sealed class CertificatePolicy : ICertificatePolicy
     {
         /// <summary>
         /// 
         /// </summary>
         /// 
-        public EmailGatewayException()
-            : base()
+        /// <param name="srvPoint"></param>
+        /// <param name="certificate"></param>
+        /// <param name="request"></param>
+        /// <param name="certificateProblem"></param>
+        /// 
+        /// <returns></returns>
+        /// 
+        public bool CheckValidationResult(ServicePoint srvPoint, X509Certificate certificate, WebRequest request, int certificateProblem)
         {
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-        /// <param name="message"></param>
-        /// 
-        public EmailGatewayException(string message)
-            : base(message)
-        {
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-        /// <param name="message"></param>
-        /// <param name="exception"></param>
-        /// 
-        public EmailGatewayException(string message, Exception exception)
-            : base(message, exception)
-        {
+            return true;
         }
     }
 }

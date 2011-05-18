@@ -11,53 +11,70 @@
 // CONDITIONS OF ANY KIND, either express or implied. See the License for the
 // specific language governing permissions and limitations under the License.
 
+#if UNIT_TEST
+
 #region Imports
 
 using System;
-using System.Runtime.Serialization;
-
-using Mindplex.Commons.Exceptions;
+using System.Collections.Generic;
+using System.Text;
 
 #endregion
 
-namespace Mindplex.Commons.Mail
+namespace Mindplex.Commons.Model.Test
 {
     /// <summary>
     /// 
     /// </summary>
     /// 
-    public class EmailGatewayException : Exception, IGenericException
+    public class TestAccountEntity
     {
         /// <summary>
         /// 
         /// </summary>
         /// 
-        public EmailGatewayException()
-            : base()
+        private long id;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        public long Id
         {
+            get { return id; }
+            set { id = value; }
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// 
-        /// <param name="message"></param>
+        private long amount;
+
+        /// <summary>
         /// 
-        public EmailGatewayException(string message)
-            : base(message)
+        /// </summary>
+        /// 
+        public long Amount
         {
+            get { return amount; }
+            set { amount = value; }
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// 
-        /// <param name="message"></param>
-        /// <param name="exception"></param>
+        /// <param name="id"></param>
+        /// <param name="amount"></param>
         /// 
-        public EmailGatewayException(string message, Exception exception)
-            : base(message, exception)
+        public TestAccountEntity(long id, long amount)
         {
+            this.id = id;
+            this.amount = amount;
         }
+
     }
 }
+
+#endif

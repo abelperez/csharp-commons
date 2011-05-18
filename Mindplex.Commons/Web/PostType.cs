@@ -14,50 +14,28 @@
 #region Imports
 
 using System;
-using System.Runtime.Serialization;
-
-using Mindplex.Commons.Exceptions;
+using System.Collections.Generic;
+using System.Text;
 
 #endregion
 
-namespace Mindplex.Commons.Mail
+namespace Mindplex.Commons.Web
 {
     /// <summary>
-    /// 
+    /// determines what type of post to perform.
     /// </summary>
     /// 
-    public class EmailGatewayException : Exception, IGenericException
+    public enum PostType
     {
         /// <summary>
-        /// 
+        /// Does a get against the source.
         /// </summary>
         /// 
-        public EmailGatewayException()
-            : base()
-        {
-        }
-
+        Get,
         /// <summary>
-        /// 
+        /// Does a post against the source.
         /// </summary>
         /// 
-        /// <param name="message"></param>
-        /// 
-        public EmailGatewayException(string message)
-            : base(message)
-        {
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-        /// <param name="message"></param>
-        /// <param name="exception"></param>
-        /// 
-        public EmailGatewayException(string message, Exception exception)
-            : base(message, exception)
-        {
-        }
+        Post
     }
 }

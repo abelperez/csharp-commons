@@ -14,50 +14,70 @@
 #region Imports
 
 using System;
-using System.Runtime.Serialization;
-
-using Mindplex.Commons.Exceptions;
+using System.Threading;
 
 #endregion
 
-namespace Mindplex.Commons.Mail
+namespace Mindplex.Commons.Threading
 {
     /// <summary>
     /// 
     /// </summary>
     /// 
-    public class EmailGatewayException : Exception, IGenericException
+    public class CountdownLatch
     {
         /// <summary>
         /// 
         /// </summary>
         /// 
-        public EmailGatewayException()
-            : base()
+        private int countdown;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        private ManualResetEvent signal;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="count"></param>
+        /// 
+        public CountdownLatch(int count)
         {
+            this.countdown = count;
+            signal = new ManualResetEvent(false);
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// 
-        /// <param name="message"></param>
-        /// 
-        public EmailGatewayException(string message)
-            : base(message)
+        public void Signal()
         {
+            if (Interlocked.Decrement(ref countdown) == 0)
+            {
+                signal.Set();
+            }
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// 
-        /// <param name="message"></param>
-        /// <param name="exception"></param>
-        /// 
-        public EmailGatewayException(string message, Exception exception)
-            : base(message, exception)
+        public void Wait()
         {
+            signal.WaitOne();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        public void Wait(int timeout)
+        {
+            signal.WaitOne(timeout, false);
         }
     }
 }

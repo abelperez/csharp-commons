@@ -14,50 +14,34 @@
 #region Imports
 
 using System;
-using System.Runtime.Serialization;
+using System.IO;
+using System.Reflection;
 
-using Mindplex.Commons.Exceptions;
+using NUnit.Framework;
 
 #endregion
 
-namespace Mindplex.Commons.Mail
+namespace Mindplex.Commons.Resources.Test
 {
     /// <summary>
     /// 
     /// </summary>
-    /// 
-    public class EmailGatewayException : Exception, IGenericException
+    ///
+    [TestFixture]
+    public class ResourceTest
     {
         /// <summary>
         /// 
         /// </summary>
         /// 
-        public EmailGatewayException()
-            : base()
+        [Test]
+        public void TestExceptionEmailTemplate()
         {
-        }
+            string result = Resource.GetResource("InternetBrands.Core.Resources.ExceptionEmailTemplate.txt");
+            Assert.IsNotNull(result);
+            Assert.IsNotEmpty(result);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-        /// <param name="message"></param>
-        /// 
-        public EmailGatewayException(string message)
-            : base(message)
-        {
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-        /// <param name="message"></param>
-        /// <param name="exception"></param>
-        /// 
-        public EmailGatewayException(string message, Exception exception)
-            : base(message, exception)
-        {
+            Console.WriteLine(result);
         }
     }
 }

@@ -14,50 +14,41 @@
 #region Imports
 
 using System;
-using System.Runtime.Serialization;
+using System.Collections.Generic;
 
-using Mindplex.Commons.Exceptions;
+using NUnit.Core;
+using NUnit.Framework;
 
 #endregion
 
-namespace Mindplex.Commons.Mail
+namespace Mindplex.Commons.Test
 {
     /// <summary>
     /// 
     /// </summary>
     /// 
-    public class EmailGatewayException : Exception, IGenericException
+    [TestFixture]
+    public  class RotationTest
     {
         /// <summary>
         /// 
         /// </summary>
         /// 
-        public EmailGatewayException()
-            : base()
+        [Test]
+        public void TestRotate()
         {
-        }
+            Dictionary<string, int> items = new Dictionary<string, int>();
+            items.Add("IB_Light", 80);
+            items.Add("IB_Green", 10);
+            items.Add("IB_Aqua", 10);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-        /// <param name="message"></param>
-        /// 
-        public EmailGatewayException(string message)
-            : base(message)
-        {
-        }
+            for (int i = 0; i < 100; i++)
+            {
+                string item = Rotation.Rotate<string>(items);
+                Assert.IsNotNull(item);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-        /// <param name="message"></param>
-        /// <param name="exception"></param>
-        /// 
-        public EmailGatewayException(string message, Exception exception)
-            : base(message, exception)
-        {
+                Console.WriteLine("rotating: {0}.", item);
+            }
         }
     }
 }

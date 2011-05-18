@@ -14,50 +14,44 @@
 #region Imports
 
 using System;
-using System.Runtime.Serialization;
+using System.Collections.Generic;
+using System.Text;
+using System.Web.Services;
 
-using Mindplex.Commons.Exceptions;
+using Spring.Context;
+using Spring.Context.Support;
 
 #endregion
 
-namespace Mindplex.Commons.Mail
+namespace Mindplex.Commons.Web.Service
 {
     /// <summary>
     /// 
     /// </summary>
     /// 
-    public class EmailGatewayException : Exception, IGenericException
+    public class GenericWebService : WebService
     {
         /// <summary>
-        /// 
+        /// Get's default application context.
         /// </summary>
         /// 
-        public EmailGatewayException()
-            : base()
+        public IApplicationContext ApplicationContext
         {
+            get { return ContextRegistry.GetContext(); }
         }
 
         /// <summary>
-        /// 
+        /// Get's an instance of a service from the default application context 
+        /// based on the specified service name.
         /// </summary>
         /// 
-        /// <param name="message"></param>
+        /// <param name="serviceName">The name os the service to get from the 
+        /// default application context</param>
+        /// <returns>Instance of a service based on the given service name.</returns>
         /// 
-        public EmailGatewayException(string message)
-            : base(message)
+        public Object GetService(string serviceName)
         {
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-        /// <param name="message"></param>
-        /// <param name="exception"></param>
-        /// 
-        public EmailGatewayException(string message, Exception exception)
-            : base(message, exception)
-        {
+            return ContextRegistry.GetContext().GetObject(serviceName);
         }
     }
 }
