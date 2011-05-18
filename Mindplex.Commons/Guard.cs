@@ -24,7 +24,7 @@ namespace InternetBrands.Core
     /// TODO: Add check for null/empty with overload for exception message 
     /// (in case we want to override the message in ArgumentException).
     /// </summary>
-	///
+    ///
     /// <author>Abel Perez</author>
     /// 
     public sealed class Guard
